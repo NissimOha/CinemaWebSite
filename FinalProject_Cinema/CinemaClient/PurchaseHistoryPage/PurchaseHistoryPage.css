@@ -1,0 +1,33 @@
+﻿.none {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.posterImg {
+    width: 130px !important;
+    height: 150px !important;
+}
+
+.purchaseHistoryContainer {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table, td {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+}

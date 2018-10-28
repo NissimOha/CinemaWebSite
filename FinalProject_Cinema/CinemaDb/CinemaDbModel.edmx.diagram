@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f38dc89907ac4d89b35e8cc6cd73f52a" Name="Diagram1">
+        <EntityTypeShape EntityType="CinemaDbModel.Catagory" Width="1.5" PointX="1" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaDbModel.Movie" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaDbModel.Person" Width="1.5" PointX="8.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaDbModel.Purchase" Width="1.5" PointX="6.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="CinemaDbModel.FK__Movie__catagory___5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaDbModel.FK__Purchase__number__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaDbModel.FK__Purchase__user_n__5AEE82B9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CinemaDbModel.DeletedMovies" Width="1.5" PointX="5" PointY="5" />
+        <InheritanceConnector EntityType="CinemaDbModel.DeletedMovies" />
+        <EntityTypeShape EntityType="CinemaDbModel.ActiveMovies" Width="1.5" PointX="2.5" PointY="5" />
+        <InheritanceConnector EntityType="CinemaDbModel.ActiveMovies" />
+        <InheritanceConnector EntityType="CinemaDbModel.ActiveMovies" />
+        <EntityTypeShape EntityType="CinemaDbModel.Admin" Width="1.5" PointX="7.25" PointY="5" />
+        <InheritanceConnector EntityType="CinemaDbModel.Admin" />
+        <EntityTypeShape EntityType="CinemaDbModel.RegularUser" Width="1.5" PointX="10" PointY="5" />
+        <InheritanceConnector EntityType="CinemaDbModel.RegularUser" />
+        <EntityTypeShape EntityType="CinemaDbModel.PersonPrivateDetails" PointX="10.875" PointY="1.875" Width="1.5" IsExpanded="true" />
+        <AssociationConnector Association="CinemaDbModel.PersonPrivateDetailsPerson" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

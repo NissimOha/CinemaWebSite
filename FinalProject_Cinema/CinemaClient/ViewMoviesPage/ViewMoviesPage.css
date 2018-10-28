@@ -1,0 +1,63 @@
+﻿.none {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.addMovieImg {
+    width: 80% !important;
+    height: 15% !important;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+}
+
+td {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: 300px;
+    width: 250px;
+}
+
+.posterImg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+label{
+    font-size:x-large;
+}
+
+.header{
+    color:cornflowerblue;
+}
+
+@keyframes spin-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.image-rotate-horizontal {
+    animation: spin-horizontal 1.5s linear 0s infinite alternate;
+}

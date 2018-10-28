@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../ThirdParty/W3.css" rel="stylesheet" />
+    <link href="AdminPage.css" rel="stylesheet" />
+    <link href="../ThirdParty/Loader.css" rel="stylesheet" />
+    <link href="../ThirdParty/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../ThirdParty/cinemaStyle.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../ThirdParty/GlobalAjax.js"></script>
+    <script src="../ThirdParty/AllowOnlyNumber.js"></script>
+    <script src="../ThirdParty/DateFormat.js"></script>
+    <script src="../ThirdParty/ControllersUrl.js"></script>
+    <script src="AdminPage.js"></script>
+</head>
+<body dir="rtl" class="w3-pale-blue">
+
+    <div class="w3-sidebar w3-blue-gray w3-bar-block" style="width:15%">
+        <h3 class="w3-bar-item w3-center">תפריט</h3>
+        <a id="hello" href="#" class="w3-bar-item w3-center w3-teal"></a>
+        <a id="aLogin" href="../Login/login.html" class="w3-bar-item w3-button w3-center">התחברות</a>
+        <a id="aViewMoviesPage" href="../ViewMoviesPage/ViewMoviesPage.html" class="w3-bar-item w3-button w3-center">צפייה בסרטים</a>
+        <a id="aPurchasePage" href="../PurchasePage/PurchasePage.html" class="w3-bar-item w3-button w3-center">הזמנת סרטים</a>
+        <a id="PurchaseHistoryPage" href="../PurchaseHistoryPage/PurchaseHistoryPage.html" class="w3-bar-item w3-button w3-center">היסטוריית קניות</a>
+        <a id="aAdminPage" href="#" class="w3-bar-item w3-button w3-center">תחזוקה - מנהלים בלבד</a>
+    </div>
+
+    <div style="margin-right:15%">
+        <div class="imgcontainer">
+            <img class="logo" src="../images/cinema-city-logo.jpg" />
+        </div>
+        <div class="moviesContainer">
+            <table class="w3-table-all w3-centered w3-striped w3-hoverable w3-bordered" id="movies">
+                <tr class="w3-blue">
+                    <th>מספר סרט</th>
+                    <th>שם הסרט</th>
+                    <th>תאריך הסרט</th>
+                    <th>מספר מושבים פנויים</th>
+                    <th>מחיר לכרטיס</th>
+                    <th>שנת הוצאה</th>
+                    <th>אורך</th>
+                    <th>ז'אנר</th>
+                    <th>פוסטר</th>
+                    <th>מחיקה</th>
+                </tr>
+            </table>
+            <button type="button" class="w3-green" id="addMovie">
+                הוסף סרט
+            </button>
+        </div>
+            <div id="addMovieWindow" class="w3-modal">
+                <div class="w3-modal-content w3-blue-grey">
+                    <div class="w3-container w3-center">
+                        <span id="exitAddMovie" class="w3-button w3-display-topright w3-red">&times;</span>
+                        <br />
+                        <img src="../images/cinema-city-logo.jpg" class="addMovieImg w3-container" />
+                        <br />
+                        <label><b>שם הסרט</b></label>
+                        <br />
+                        <input type="text" placeholder="הכנס את שם הסרט" id="aMovieName" required>
+                        <br />
+                        <label><b>תאריך הסרט</b></label>
+                        <br />
+                        <input type="datetime-local" id="aMovieDate" min="2018-01-01" max="2080-12-31" required">
+                        <br />
+                        <label><b>מספר מושבים</b></label>
+                        <br />
+                        <input type="number" min="0" max="500" placeholder="הכנס מספר מושבים פנויים" id="aNumOfSeat" required>
+                        <br />
+                        <label><b>מחיר כרטיס</b></label>
+                        <br />
+                        <input type="number" min="0" max="500" placeholder="הכנס מחיר סרט" id="aTicketPrice" required>
+                        <br />
+                        <label><b>שנת הוצאת הסרט</b></label>
+                        <br />
+                        <input type="number" min="1920" max="2080" placeholder="הכנס שנת הוצאת הסרט" id="aPYear" required>
+                        <br />
+                        <label><b>אורך הסרט</b></label>
+                        <br />
+                        <input type="number" min="20" max="250" placeholder="הכנס אורך הסרט בדקות" id="alength" required>
+                        <br />
+                        <label><b>פוסטר</b></label>
+                        <br />
+                        <input type="file" accept="image/*" id="aPoster">
+                        <br />
+                        <label><b>ז'אנר</b></label>
+                        <br />
+                        <select id="catagotyOptions">
+                            <option value="0">פעולה</option>
+                            <option value="1">מתח</option>
+                            <option value="2">קומדיה</option>
+                            <option value="3">דרמה</option>
+                            <option value="4">רומנטי</option>
+                            <option value="5">אימה</option>
+                        </select>
+                        <br />
+                        <button type="button" class="w3-green" id="addToDb">
+                            הוסף
+                            <div id="aloading" class="loader"></div>
+                        </button>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</body>
+</html>

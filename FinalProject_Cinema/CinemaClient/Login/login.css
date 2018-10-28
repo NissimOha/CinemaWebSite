@@ -1,0 +1,64 @@
+﻿input[type=text], input[type=number], input[type=password] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: auto;
+    display: inline-block;
+    border: 3px solid #30cbe1;
+    box-sizing: border-box;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+}
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+.imgcontainer {
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.margin {
+    display:block;
+    padding-right:17%;
+}
+
+.focuse {
+    border: 3px solid #00ff21 !important;
+}
+
+.lostFocuse {
+    border: 3px solid #30cbe1 !important;
+}
+
+.numberOnly {
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.signUpImg {
+    width: 800px !important;
+    height: 150px !important;
+}
+
+.signUpLabel {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}

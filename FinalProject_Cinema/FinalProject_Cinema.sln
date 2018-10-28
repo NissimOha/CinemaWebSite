@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaDb", "CinemaDb\CinemaDb.csproj", "{F267747A-FEBF-4584-A735-3EC63083EDA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaRepository", "CinemaRepository\CinemaRepository.csproj", "{BEA3B536-D5CB-467C-AC65-E6838548D647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaBL", "CinemaBL\CinemaBL.csproj", "{879614F2-5406-4C28-BB04-A8FC3596F64E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaRepositoryTest", "CinemaRepositoryTest\CinemaRepositoryTest.csproj", "{DFE2F042-DC1F-47EE-BAE5-5B2B61FDBD16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaBLTest", "CinemaBLTest\CinemaBLTest.csproj", "{2A325941-3A51-408E-8C0B-F31F4A528683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaWebApi", "CinemaWebApi\CinemaWebApi.csproj", "{D55E5198-E462-40A3-A3FD-563F0E2FA01F}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CinemaClient(1)", "CinemaClient\", "{E2099915-2E30-47C3-A462-27665E49D1DF}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52266"
+		Debug.AspNetCompiler.PhysicalPath = "CinemaClient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52266\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52266"
+		Release.AspNetCompiler.PhysicalPath = "CinemaClient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52266\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52266"
+		SlnRelativePath = "CinemaClient\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F267747A-FEBF-4584-A735-3EC63083EDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F267747A-FEBF-4584-A735-3EC63083EDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F267747A-FEBF-4584-A735-3EC63083EDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F267747A-FEBF-4584-A735-3EC63083EDA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA3B536-D5CB-467C-AC65-E6838548D647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA3B536-D5CB-467C-AC65-E6838548D647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA3B536-D5CB-467C-AC65-E6838548D647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA3B536-D5CB-467C-AC65-E6838548D647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879614F2-5406-4C28-BB04-A8FC3596F64E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879614F2-5406-4C28-BB04-A8FC3596F64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879614F2-5406-4C28-BB04-A8FC3596F64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879614F2-5406-4C28-BB04-A8FC3596F64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFE2F042-DC1F-47EE-BAE5-5B2B61FDBD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFE2F042-DC1F-47EE-BAE5-5B2B61FDBD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFE2F042-DC1F-47EE-BAE5-5B2B61FDBD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFE2F042-DC1F-47EE-BAE5-5B2B61FDBD16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A325941-3A51-408E-8C0B-F31F4A528683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A325941-3A51-408E-8C0B-F31F4A528683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A325941-3A51-408E-8C0B-F31F4A528683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A325941-3A51-408E-8C0B-F31F4A528683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55E5198-E462-40A3-A3FD-563F0E2FA01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55E5198-E462-40A3-A3FD-563F0E2FA01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55E5198-E462-40A3-A3FD-563F0E2FA01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55E5198-E462-40A3-A3FD-563F0E2FA01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2099915-2E30-47C3-A462-27665E49D1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2099915-2E30-47C3-A462-27665E49D1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2099915-2E30-47C3-A462-27665E49D1DF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2099915-2E30-47C3-A462-27665E49D1DF}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04F6B99F-B5FD-4F21-8E5A-38C68C7D391D}
+	EndGlobalSection
+EndGlobal

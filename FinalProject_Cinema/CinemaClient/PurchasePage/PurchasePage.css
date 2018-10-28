@@ -1,0 +1,110 @@
+﻿.none {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.addMovieImg {
+    width: 80% !important;
+    height: 15% !important;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.purchaseContainer {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.posterImg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.movieTable {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+}
+
+td {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: 300px;
+    width: 250px;
+}
+
+th{
+    width:10%;
+    height:20%;
+}
+
+label {
+    font-size: x-large;
+}
+
+.header {
+    color: cornflowerblue;
+}
+
+.redAlert {
+    color: red;
+    width: 50px;
+    height: 20px;
+    background-color: cornflowerblue;
+}
+
+.greenAlert {
+    color: lawngreen;
+    width: 50px;
+    height: 20px;
+    background-color: cornflowerblue;
+}
+
+.amount{
+    width:50px;
+    height:20px;
+    background-color:cornflowerblue;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+}
+
+.purTable {
+    height: 10px;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+}
+
+@keyframes spin-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.image-rotate-horizontal {
+    animation: spin-horizontal 1.5s linear 0s infinite alternate;
+}

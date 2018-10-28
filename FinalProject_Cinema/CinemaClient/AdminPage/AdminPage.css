@@ -1,0 +1,86 @@
+﻿input{
+    width: 80%;
+    padding: 12px 20px;
+    margin: auto;
+    display: inline-block;
+    border: 3px solid #30cbe1;
+    box-sizing: border-box;
+}
+
+.moviesContainer {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+table, td {
+    margin: auto;
+    border-collapse:collapse;
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+}
+
+.t {
+    height: 150px;
+    width: 100px;
+}
+
+th {
+    font-family: Arial;
+    font-size: larger;
+    color: greenyellow;
+}
+
+span {
+    font-family: Arial;
+    font-size: larger;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+}
+
+.redAlert {
+    color: red;
+    width: 80%;
+}
+
+.greenAlert {
+    color: lawngreen;
+    width: 80%;
+}
+
+.trStyle{
+    background-color:cornflowerblue;
+}
+
+.addMovieImg {
+    width: 80% !important;
+    height: 15% !important;
+}
+
+.focuse {
+    border: 3px solid #00ff21 !important;
+}
+
+.lostFocuse {
+    border: 3px solid #30cbe1 !important;
+}
+
+.posterImg {
+    width: 100% !important;
+    height: 100% !important;
+}

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CinemaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Catagory">
+          <Key>
+            <PropertyRef Name="catagory_id" />
+          </Key>
+          <Property Name="catagory_id" Type="int" Nullable="false" />
+          <Property Name="catagory_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="movie_date" Type="datetime" Nullable="false" />
+          <Property Name="num_of_seat" Type="int" Nullable="false" />
+          <Property Name="ticket_price" Type="float" Nullable="false" />
+          <Property Name="p_year" Type="int" Nullable="false" />
+          <Property Name="length" Type="int" Nullable="false" />
+          <Property Name="poster_url" Type="nvarchar(max)" />
+          <Property Name="catagory_id" Type="int" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="passward" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="is_admin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="purchase_id" />
+          </Key>
+          <Property Name="purchase_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="number" Type="int" />
+          <Property Name="purchase_date" Type="datetime" Nullable="false" />
+          <Property Name="purchase_amount" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Movie__catagory___5535A963">
+          <End Role="Catagory" Type="Self.Catagory" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catagory">
+              <PropertyRef Name="catagory_id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="catagory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__number__6383C8BA">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="number" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__user_n__6477ECF3">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CinemaDbModelStoreContainer">
+          <EntitySet Name="Catagory" EntityType="Self.Catagory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Movie__catagory___5535A963" Association="Self.FK__Movie__catagory___5535A963">
+            <End Role="Catagory" EntitySet="Catagory" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__number__6383C8BA" Association="Self.FK__Purchase__number__6383C8BA">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__user_n__6477ECF3" Association="Self.FK__Purchase__user_n__6477ECF3">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CinemaDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Catagory">
+          <Key>
+            <PropertyRef Name="catagory_id" />
+          </Key>
+          <Property Name="catagory_id" Type="Int32" Nullable="false" />
+          <Property Name="catagory_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK__Movie__catagory___5535A963" FromRole="Catagory" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Movie" Abstract="true">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="movie_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="num_of_seat" Type="Int32" Nullable="false" />
+          <Property Name="ticket_price" Type="Double" Nullable="false" />
+          <Property Name="p_year" Type="Int32" Nullable="false" />
+          <Property Name="length" Type="Int32" Nullable="false" />
+          <Property Name="poster_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="catagory_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catagory" Relationship="Self.FK__Movie__catagory___5535A963" FromRole="Movie" ToRole="Catagory" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK__Purchase__number__5BE2A6F2" FromRole="Movie" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="Person" Abstract="true">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK__Purchase__user_n__5AEE82B9" FromRole="Person" ToRole="Purchase" />
+          <NavigationProperty Name="PersonPrivateDetails" Relationship="CinemaDbModel.PersonPrivateDetailsPerson" FromRole="Person" ToRole="PersonPrivateDetails" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="purchase_id" />
+          </Key>
+          <Property Name="purchase_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="purchase_date" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="purchase_amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK__Purchase__number__5BE2A6F2" FromRole="Purchase" ToRole="Movie" />
+          <NavigationProperty Name="Person" Relationship="Self.FK__Purchase__user_n__5AEE82B9" FromRole="Purchase" ToRole="Person" />
+        </EntityType>
+        <Association Name="FK__Movie__catagory___5535A963">
+          <End Role="Catagory" Type="Self.Catagory" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catagory">
+              <PropertyRef Name="catagory_id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="catagory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__number__5BE2A6F2">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="number" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__user_n__5AEE82B9">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CinemaDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Catagory" EntityType="Self.Catagory" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" />
+          <EntitySet Name="Person" EntityType="Self.Person" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" />
+          <AssociationSet Name="FK__Movie__catagory___5535A963" Association="Self.FK__Movie__catagory___5535A963">
+            <End Role="Catagory" EntitySet="Catagory" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__number__5BE2A6F2" Association="Self.FK__Purchase__number__5BE2A6F2">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__user_n__5AEE82B9" Association="Self.FK__Purchase__user_n__5AEE82B9">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <EntitySet Name="PersonPrivateDetailsSet" EntityType="CinemaDbModel.PersonPrivateDetails" />
+          <AssociationSet Name="PersonPrivateDetailsPerson" Association="CinemaDbModel.PersonPrivateDetailsPerson">
+            <End EntitySet="PersonPrivateDetailsSet" Role="PersonPrivateDetails" />
+            <End EntitySet="Person" Role="Person" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="DeletedMovies" BaseType="CinemaDbModel.Movie" />
+        <EntityType Name="ActiveMovies" BaseType="CinemaDbModel.Movie" />
+        <EntityType Name="Admin" BaseType="CinemaDbModel.Person" ></EntityType>
+        <EntityType Name="RegularUser" BaseType="CinemaDbModel.Person" ></EntityType>
+        <EntityType Name="PersonPrivateDetails">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Nullable="false" annotation:StoreGeneratedPattern="None" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Person" Relationship="CinemaDbModel.PersonPrivateDetailsPerson" FromRole="PersonPrivateDetails" ToRole="Person" />
+          <Property Name="passward" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" Type="String" />
+        </EntityType>
+        <Association Name="PersonPrivateDetailsPerson">
+          <End Type="CinemaDbModel.PersonPrivateDetails" Multiplicity="1" Role="PersonPrivateDetails" />
+          <End Type="CinemaDbModel.Person" Multiplicity="1" Role="Person" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="PersonPrivateDetails">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CinemaDbModelStoreContainer" CdmEntityContainer="CinemaDbContext">
+          <EntitySetMapping Name="Catagory">
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.Catagory)">
+              <MappingFragment StoreEntitySet="Catagory">
+                <ScalarProperty Name="catagory_id" ColumnName="catagory_id" />
+                <ScalarProperty Name="catagory_name" ColumnName="catagory_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movie">
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.Movie)">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="catagory_id" ColumnName="catagory_id" />
+                <ScalarProperty Name="poster_url" ColumnName="poster_url" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="p_year" ColumnName="p_year" />
+                <ScalarProperty Name="ticket_price" ColumnName="ticket_price" />
+                <ScalarProperty Name="num_of_seat" ColumnName="num_of_seat" />
+                <ScalarProperty Name="movie_date" ColumnName="movie_date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.ActiveMovies)">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <Condition ColumnName="isDeleted" Value="false" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.DeletedMovies)">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <Condition ColumnName="isDeleted" Value="true" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.Person)">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.Admin)">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <Condition ColumnName="is_admin" Value="true" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.RegularUser)">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <Condition ColumnName="is_admin" Value="false" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase">
+            <EntityTypeMapping TypeName="CinemaDbModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="purchase_date" ColumnName="purchase_date" />
+                <ScalarProperty Name="purchase_amount" ColumnName="purchase_amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonPrivateDetailsSet">
+            <EntityTypeMapping TypeName="IsTypeOf(CinemaDbModel.PersonPrivateDetails)">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="passward" ColumnName="passward" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

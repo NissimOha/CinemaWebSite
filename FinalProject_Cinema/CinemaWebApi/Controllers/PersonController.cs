@@ -19,6 +19,11 @@ namespace CinemaWebApi.Controllers
     public class PersonController : ApiController
     {
         #region IsAdmin
+        /// <summary>
+        /// Check whether a given userName is admin or not
+        /// </summary>
+        /// <param name="userName">The userName to check</param>
+        /// <returns>Indicate whether the userName is admin or not</returns>
         [HttpGet]
         [Authorize]
         [Route("isAdmin/{userName}")]
@@ -36,6 +41,11 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region AddPerson
+        /// <summary>
+        /// Adding new user to DB
+        /// </summary>
+        /// <param name="person">new person</param>
+        /// <returns>Indicate whether the action complete successfully or not</returns>
         [HttpPost]
         [Route("AddUser")]
         public HttpResponseMessage AddUser(PersonDto person)
@@ -54,6 +64,11 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region GetToken
+        /// <summary>
+        /// Get token to user that login into the system
+        /// </summary>
+        /// <param name="user">The userName and passward of a given user</param>
+        /// <returns>Token and role [Admin/User] of a given user or forbidden the user</returns>
         [HttpPost]
         [Route("GetToken")]
         public HttpResponseMessage GetToken([FromBody]UserValidationDto user)
@@ -104,6 +119,11 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region GetPurchaseHistory
+        /// <summary>
+        /// Get purchase history of a given user
+        /// </summary>
+        /// <param name="userName">The user name</param>
+        /// <returns>List of purchase history</returns>
         [HttpGet]
         [Authorize]
         [Route("GetPurchaseHistory/{userName}")]
@@ -135,6 +155,11 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region AddPurchase
+        /// <summary>
+        /// Add new purchase to a given user
+        /// </summary>
+        /// <param name="purchases">The purchase</param>
+        /// <returns>Indicate whether the action complete successfully or not</returns>
         [HttpPost]
         [Authorize]
         [Route("AddPurchase")]

@@ -16,6 +16,10 @@ namespace CinemaWebApi.Controllers
     public class MoiveController : ApiController
     {
         #region GetAllMoives
+        /// <summary>
+        /// Return all the active movies without getting token
+        /// </summary>
+        /// <returns>all the active movies</returns>
         [HttpGet]
         [Route("GetAllMoives")]
         public HttpResponseMessage GetAllMoives()
@@ -48,6 +52,10 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region GetAllMoivesSecure
+        /// <summary>
+        /// Return all the active movies with getting token
+        /// </summary>
+        /// <returns>Status code and all the active movies if enabled</returns>
         [HttpGet]
         [Authorize]
         [Route("GetAllMoivesSecure")]
@@ -85,6 +93,10 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region AddMovie
+        /// <summary>
+        /// Add new movie to DB
+        /// </summary>
+        /// <returns>Indicate whether the action complete successfully or not</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [Route("AddMovie")]
@@ -137,6 +149,11 @@ namespace CinemaWebApi.Controllers
         #endregion
 
         #region DeleteMovie
+        /// <summary>
+        /// Delete movie from the Active movies
+        /// </summary>
+        /// <param name="number">the number of the movie to delete</param>
+        /// <returns>Indicate whether the action complete successfully or not</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("DeleteMovie/{number}")]

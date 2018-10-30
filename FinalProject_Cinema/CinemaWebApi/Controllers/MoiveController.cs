@@ -3,7 +3,6 @@ using CinemaWebApi.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
@@ -21,24 +20,30 @@ namespace CinemaWebApi.Controllers
         [Route("GetAllMoives")]
         public HttpResponseMessage GetAllMoives()
         {
-            var movies = CinemaService.GetAllMovieWithCatagory();
-            var movieDto = new List<MovieDto>();
-            foreach (var movie in movies)
+            try
             {
-                movieDto.Add(new MovieDto()
+                var movies = CinemaService.GetAllMovieWithCatagory();
+                var movieDto = new List<MovieDto>();
+                foreach (var movie in movies)
                 {
-                    number = movie.number,
-                    name = movie.name,
-                    movieDate = movie.movie_date,
-                    numOfSeat = movie.num_of_seat,
-                    ticketPrice = movie.ticket_price,
-                    pYear = movie.p_year,
-                    length = movie.length,
-                    posterUrl = movie.poster_url,
-                    catagory = ((Catagory)movie.catagory_id).ToString()
-                });
+                    movieDto.Add(new MovieDto()
+                    {
+                        number = movie.number,
+                        name = movie.name,
+                        movieDate = movie.movie_date,
+                        numOfSeat = movie.num_of_seat,
+                        ticketPrice = movie.ticket_price,
+                        pYear = movie.p_year,
+                        length = movie.length,
+                        posterUrl = movie.poster_url,
+                        catagory = ((Catagory)movie.catagory_id).ToString()
+                    });
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, movieDto);
+            }catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, ex.Message);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, movieDto);
         }
         #endregion
 
@@ -48,28 +53,34 @@ namespace CinemaWebApi.Controllers
         [Route("GetAllMoivesSecure")]
         public HttpResponseMessage GetAllMoivesSecure()
         {
-            var userName = User.Identity.Name;
-            if (!CinemaService.IsUser(userName))
-                throw (new UnauthorizedAccessException("The access is only for users"));
-
-            var movies = CinemaService.GetAllMovieWithCatagory();
-            var movieDto = new List<MovieDto>();
-            foreach (var movie in movies)
+            try
             {
-                movieDto.Add(new MovieDto()
+                var userName = User.Identity.Name;
+                if (!CinemaService.IsUser(userName))
+                    throw (new UnauthorizedAccessException("The access is only for users"));
+
+                var movies = CinemaService.GetAllMovieWithCatagory();
+                var movieDto = new List<MovieDto>();
+                foreach (var movie in movies)
                 {
-                    number = movie.number,
-                    name = movie.name,
-                    movieDate = movie.movie_date,
-                    numOfSeat = movie.num_of_seat,
-                    ticketPrice = movie.ticket_price,
-                    pYear = movie.p_year,
-                    length = movie.length,
-                    posterUrl = movie.poster_url,
-                    catagory = ((Catagory)movie.catagory_id).ToString()
-                });
+                    movieDto.Add(new MovieDto()
+                    {
+                        number = movie.number,
+                        name = movie.name,
+                        movieDate = movie.movie_date,
+                        numOfSeat = movie.num_of_seat,
+                        ticketPrice = movie.ticket_price,
+                        pYear = movie.p_year,
+                        length = movie.length,
+                        posterUrl = movie.poster_url,
+                        catagory = ((Catagory)movie.catagory_id).ToString()
+                    });
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, movieDto);
+            }catch(Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, ex.Message);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, movieDto);
         }
         #endregion
 
@@ -87,7 +98,7 @@ namespace CinemaWebApi.Controllers
 
                 HttpPostedFile file = HttpContext.Current.Request.Files["img"];
                 var cat = HttpContext.Current.Request.Params["catagory"].ToString();
-                string ext = Path.GetExtension(file.FileName);
+                string ext = Path.GetExtension(file?.FileName);
                 var guid = Guid.NewGuid();
 
                 int? catagory = null;
@@ -115,7 +126,7 @@ namespace CinemaWebApi.Controllers
                     "../poster/" + guid + ext, 
                     catagory.Value);
 
-                file.SaveAs(serverPath + guid + ext);
+                file?.SaveAs(serverPath + guid + ext);
                 return Request.CreateResponse(HttpStatusCode.OK, true);
             }
             catch (Exception ex)
@@ -141,7 +152,7 @@ namespace CinemaWebApi.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.Forbidden, ex.Message);
             }
         }
         #endregion

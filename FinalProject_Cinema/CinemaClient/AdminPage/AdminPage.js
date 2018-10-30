@@ -27,7 +27,7 @@
     }
 
     function deleteMove(movie) {
-        if (confirm("Are you sure you want to delete this movie?")) {
+        if (confirm("אתה בטוח שברצונך למחוק את הסרט?")) {
             var number = $(".pNumber" + movie.className.substring(19, 20))[0].innerHTML;
             GlobalAjaxToken(GetMovieUrl() + "DeleteMovie/" + number, "PUT", "", token, refresh, fail);
         } else {
@@ -103,16 +103,6 @@
     function exitAddMovie() {
         document.getElementById('addMovieWindow').style.display = 'none';
         $loading = $("#loading").hide();
-    }
-
-    function fail(message) {
-        if (message.status == 401) {
-            alert("You have to login first");
-            window.location.href = "../Login/Login.html";
-        }
-        else {
-            alert("error occured: " + "Status: " + message.statusText + " message: " + message);
-        }
     }
 
     function refresh(message) {

@@ -72,14 +72,10 @@
         document.getElementById('ShowDetailsWindow').style.display = 'none';
     }
 
-    function fail(message) {
-        if (message.status == 401) {
-            alert("You have to login first");
-            window.location.href = "../Login/Login.html";
-        }
-        else {
-            alert("error occured: " + "Status: " + message.statusText + " message: " + message);
-        }
+    function registerToTableEvent() {
+        $(".details").on("click", function () { showDetails(this); });
+        $('.posterImg').on("mouseover", function () { spinImage(this); });
+        $('.posterImg').on("mouseout", function () { stopSpinImage(this); });
     }
 
     function registerToEvent() {
@@ -99,6 +95,7 @@
         }
         clearMovies();
         getSearchMovies(sMovies);
+        registerToTableEvent();
     }
 
     function getSearchMovies(searchMovies) {

@@ -54,8 +54,8 @@ namespace CinemaWebApi
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "http://localhost:54815/",
-                    ValidAudience = "http://localhost:52266/",
+                    ValidIssuer = ConfigurationManager.AppSettings["Issuer"],
+                    ValidAudience = ConfigurationManager.AppSettings["Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(
                     Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["secretKey"]))
                 }

@@ -48,7 +48,7 @@ namespace CinemaWebApi.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.Forbidden, ex.Message);
             }
         }
         #endregion
@@ -85,8 +85,8 @@ namespace CinemaWebApi.Controllers
                     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
-                        issuer: "http://localhost:54815/",
-                        audience: "http://localhost:52266/",
+                        issuer: ConfigurationManager.AppSettings["Issuer"],
+                        audience: ConfigurationManager.AppSettings["Audience"],
                         claims: claims,
                         //set the time the token is valid
                         expires: DateTime.Now.AddMinutes(15),
@@ -95,7 +95,7 @@ namespace CinemaWebApi.Controllers
                     return Request.CreateResponse(HttpStatusCode.OK, 
                         new JwtSecurityTokenHandler().WriteToken(token));
                 }
-                return Request.CreateResponse(HttpStatusCode.Unauthorized, "Passward incorrect");
+                return Request.CreateResponse(HttpStatusCode.Forbidden, "Passward incorrect");
             }catch(Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.Forbidden, ex.Message);
@@ -150,7 +150,7 @@ namespace CinemaWebApi.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, ex.Message);
             }
         }
         #endregion

@@ -34,9 +34,9 @@ namespace CinemaBL
                     using(var uOw = new UnitOfWork(new CinemaDbContext()))
                     {
                         if (uOw.Persons.GetUserType(userName) != User_Type.None)
-                            throw (new Exception("The user_name alredy exsist"));
+                            throw (new Exception("The user_name alredy exist"));
                         if (passward.Length < 6 || passward.Length > 12)
-                            throw (new Exception("The passwarn must be 6-12 letters"));
+                            throw (new Exception("The passward must be 6-12 letters"));
                         uOw.Persons.AddUser(userName, passward, firstName, lastName);
                         uOw.Commit();
                     }

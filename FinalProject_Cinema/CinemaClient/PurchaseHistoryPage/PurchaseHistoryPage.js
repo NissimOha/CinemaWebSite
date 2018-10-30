@@ -48,16 +48,6 @@
                                 </tr>`
     }
 
-    function fail(message) {
-        if (message.status == 401) {
-            alert("You have to login first");
-            window.location.href = "../Login/Login.html";
-        }
-        else {
-            alert("error occured: " + "Status: " + message.statusText + " message: " + message);
-        }
-    }
-
     function setAdminSideBar() {
         $("#aLogin").attr("href", "../Login/login.html");
         $("#aLogin")[0].text = "התנתק";

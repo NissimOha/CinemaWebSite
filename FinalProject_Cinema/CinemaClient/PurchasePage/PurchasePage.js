@@ -213,17 +213,6 @@
         document.getElementById('ShowDetailsWindow').style.display = 'none';
     }
 
-    function fail(message) {
-        if (message.status == 401) {
-            alert("יש להתחבר תחילה");
-            window.location.href = "../Login/Login.html";
-        }
-        else {
-            alert("error occured: " + "Status: " + message.statusText + " message: " + message);
-            window.location.href = "../Login/Login.html";
-        }
-    }
-
     function search(sWard) {
         console.log(sWard.value);
         sMovies = [];
@@ -233,6 +222,7 @@
         }
         clearMovies();
         getSearchMovies(sMovies);
+        registerToTableEvent();
     }
 
     function getSearchMovies(searchMovies) {
@@ -263,6 +253,15 @@
         for (let i = 0; i < $movT.length; i++) {
             $movT.remove();
         }
+    }
+
+    function registerToTableEvent() {
+        $(".details").on("click", function () { showDetails(this); });
+        $('input[type=number]').on("blur", validateAmount);
+        $('input[type=number]').on("blur", validateAmount);
+        $('.posterImg').on("mouseover", function () { spinImage(this); });
+        $('.posterImg').on("mouseout", function () { stopSpinImage(this); });
+        AllowOnlynNmbers();
     }
 
     function registerToEvent() {

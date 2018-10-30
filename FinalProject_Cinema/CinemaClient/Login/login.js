@@ -92,11 +92,6 @@
         }
     }
 
-    function fail(message) {
-        alert("Problem occured: " + message.responseJSON);
-        sessionStorage.removeItem("token");
-    }
-
     function registerToEvent() {
         $("#userName").on("focus", { name: "#userName" }, focused);
         $("#passward").on("focus", { name: "#passward" }, focused);

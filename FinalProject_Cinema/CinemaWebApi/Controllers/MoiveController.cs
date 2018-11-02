@@ -126,7 +126,7 @@ namespace CinemaWebApi.Controllers
                     throw (new FormatException("There is no such catagory"));
 
                 //Need to be changed when we have real server
-                var serverPath = "D:\\FinalProject_Cinema\\CinemaClient\\poster\\";
+                var serverPath = @"C:\Users\nissi\OneDrive\מסמכים\GitHub\CinemaWebSite\FinalProject_Cinema\CinemaClient\poster\";
 
                 CinemaService.AddMovie(
                     HttpContext.Current.Request.Params["name"].ToString(),

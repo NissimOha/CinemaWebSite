@@ -52,7 +52,7 @@
 
     function registerSuccess(message) {
         if (message === true) {
-            alert("הרישום עברה בהצלחה");
+            alert("הרישום עבר בהצלחה");
             exitSignUp();
         }
         else {

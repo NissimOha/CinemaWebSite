@@ -28,7 +28,7 @@
 
     function deleteMove(movie) {
         if (confirm("אתה בטוח שברצונך למחוק את הסרט?")) {
-            var number = $(".pNumber" + movie.className.substring(19, 20))[0].innerHTML;
+            var number = $(".pNumber" + movie.className.substring(19))[0].innerHTML;
             GlobalAjaxToken(GetMovieUrl() + "DeleteMovie/" + number, "PUT", "", token, refresh, fail);
         } else {
             return;
